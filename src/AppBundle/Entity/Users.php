@@ -132,6 +132,13 @@ class Users
     public $admin;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="missing", type="boolean", nullable=true)
+     */
+    public $missing = 0;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="language", type="string", length=255, nullable=false)
@@ -146,6 +153,22 @@ class Users
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     public $id;
+
+    /**
+     * @return boolean
+     */
+    public function isMissing()
+    {
+        return $this->missing;
+    }
+
+    /**
+     * @param boolean $missing
+     */
+    public function setMissing($missing)
+    {
+        $this->missing = $missing;
+    }
 
 
 
