@@ -136,7 +136,8 @@ class Users
      *
      * @ORM\Column(name="missing", type="boolean", nullable=true)
      */
-    public $missing = 0;
+    public $missing = false;
+
 
     /**
      * @var string

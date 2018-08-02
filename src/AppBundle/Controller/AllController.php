@@ -50,4 +50,6 @@ class AllController extends Controller
 
         return $this->response(['msg'=>'pasword wront'], 400);
     }
+
+    
 }
