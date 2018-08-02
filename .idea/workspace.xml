@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3da30481-248d-40c8-accb-76bacea075cf" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/AllController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/AllController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Entity/Users.php" afterPath="$PROJECT_DIR$/src/AppBundle/Entity/Users.php" />
     </list>
     <ignored path="leqaa.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -107,6 +105,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="ConveyUser.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/ConveyUser.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="465">
+              <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Convey.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Convey.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -135,6 +143,7 @@
         <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/AllController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/Users.php" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Entity/ConveyUser.php" />
       </list>
     </option>
   </component>
@@ -456,12 +465,12 @@
       <updated>1533157517762</updated>
       <workItem from="1533157519199" duration="1257000" />
       <workItem from="1533178179034" duration="1874000" />
-      <workItem from="1533232747567" duration="4757000" />
+      <workItem from="1533232747567" duration="5208000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7888000" />
+    <option name="totallyTimeSpent" value="8339000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -745,6 +754,14 @@
           <folding>
             <element signature="e#125#182#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/ConveyUser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
