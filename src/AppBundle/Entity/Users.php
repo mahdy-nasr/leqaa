@@ -163,6 +163,23 @@ class Users implements \JsonSerializable
     public $id;
 
     /**
+     * @return int
+     */
+    public function getConveyId()
+    {
+        return $this->conveyId;
+    }
+
+    /**
+     * @param int $conveyId
+     */
+    public function setConveyId($conveyId)
+    {
+        $this->conveyId = $conveyId;
+    }
+
+
+    /**
      * @return boolean
      */
     public function isMissing()
