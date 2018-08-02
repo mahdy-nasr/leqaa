@@ -47,14 +47,11 @@ class Schedule implements \JsonSerializable
     private $id;
 
     /**
-     * @var \AppBundle\Entity\Convey
+     * @var integer
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Convey")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="convey_id", referencedColumnName="id")
-     * })
+     * @ORM\Column(name="convey_id", type="integer")
      */
-    private $convey;
+    private $conveyId;
 
     /**
      * @return \DateTime
@@ -112,23 +109,25 @@ class Schedule implements \JsonSerializable
         return $this->id;
     }
 
-
-
     /**
-     * @return Convey
+     * @return int
      */
-    public function getConvey()
+    public function getConveyId()
     {
-        return $this->convey;
+        return $this->conveyId;
     }
 
     /**
-     * @param Convey $convey
+     * @param int $conveyId
      */
-    public function setConvey($convey)
+    public function setConveyId($conveyId)
     {
-        $this->convey = $convey;
+        $this->conveyId = $conveyId;
     }
+
+
+
+
 
 
     public function jsonSerialize()
