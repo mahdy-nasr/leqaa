@@ -51,5 +51,27 @@ class AllController extends Controller
         return $this->response(['msg'=>'pasword wront'], 400);
     }
 
-    
+    /**
+     * @Route("/getqruser", name="getQruser")
+     */
+    public function getQrUserAction(Request $request)
+    {
+        $data = $request->request->all();
+        if (!$data || !isset($data['qrCode'])) {
+            return $this->response($data, 400);
+        }
+
+
+        $em= $this->getOrm();
+        $user = $em->getRepository('AppBundle:Users')->findOneBy(['qrCode'=>$data['qrCode']]);
+        if (!$user) {
+            return $this->response(['msg'=>'not exist'], 400);
+        }
+            return $this->response($user);
+
+
+
+    }
+
+
 }
