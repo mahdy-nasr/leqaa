@@ -149,6 +149,13 @@ class Users implements \JsonSerializable
     /**
      * @var integer
      *
+     * @ORM\Column(name="conveyId", type="integer", length=255, nullable=false)
+     */
+    private $conveyId;
+
+    /**
+     * @var integer
+     *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
