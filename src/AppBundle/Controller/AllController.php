@@ -16,10 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AllController extends Controller
 {
-    public function getData($request)
-    {
-        return $request->getContent();
-    }
+
 
     private function response($opj, $status=200)
     {
@@ -35,9 +32,9 @@ class AllController extends Controller
      */
     public function loginUserAction(Request $request)
     {
-        $data = $this->getData($request);
+        $data = $request->request->all();
         if (!$data || !isset($data['mobile'])) {
-            return $this->response(['msg'=>'not allowed, no mobile'], 400);
+            return $this->response($data, 400);
         }
 
 
