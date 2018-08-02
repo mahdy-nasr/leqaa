@@ -69,3 +69,14 @@ swiftmailer:
 sensio_framework_extra:
    router:
         annotations: false
+
+
+easy_admin:
+    entities:
+        - AppBundle\Entity\Users
+        - AppBundle\Entity\Convey
+        - AppBundle\Entity\Broadcasts
+        - AppBundle\Entity\Messages
+        - AppBundle\Entity\Schedule
+
+
