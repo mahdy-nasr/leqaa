@@ -37,17 +37,20 @@ class AllController extends Controller
     {
         $data = $this->getData($request);
         if (!$data || !isset($data['mobile'])) {
-            return $this->response(['msg'=>'not allowed'], 400);
+            return $this->response(['msg'=>'not allowed, no mobile'], 400);
         }
 
 
         $em= $this->getOrm();
         $user = $em->getRepository('AppBundle:Users')->findOneBy(['mobile'=>$data['mobile']]);
+        if (!$user) {
+            return $this->response(['msg'=>'not exist'], 400);
+        }
         if ($user && $user->getPassword() == $data['password']) {
             return $this->response($user);
         }
 
 
-        return $this->response(['msg'=>'not allowed'], 400);
+        return $this->response(['msg'=>'pasword wront'], 400);
     }
 }
