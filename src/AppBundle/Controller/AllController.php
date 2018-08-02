@@ -69,9 +69,97 @@ class AllController extends Controller
         }
             return $this->response($user);
 
+    }
 
+    /**
+     * @Route("/getConvey")
+     */
+    public function getConveyAction(Request $request)
+    {
+        $data = $request->request->get('userId');
+        $em= $this->getOrm();
+        $user = $em->getRepository('AppBundle:Users')->findOneBy(['qrCode'=>$data['qrCode']]);
 
     }
+
+    /**
+     * @Route("/getConvey")
+     */
+    public function getConveyUsersForAdminAction(Request $request)
+    {
+        $data = $request->request->all();
+    }
+
+    /**
+     * @Route("/getConvey")
+     */
+    public function getConveyMissingUsersForAdminAction(Request $request)
+    {
+        $data = $request->request->all();
+    }
+
+    /**
+     * @Route("/getConvey")
+     */
+    public function getConveyUsersAction(Request $request)
+    {
+        $data = $request->request->all();
+    }
+
+    /**
+     * @Route("/getConvey")
+     */
+    public function getNearestUserAction(Request $request)
+    {
+        $data = $request->request->all();
+    }
+
+    /**
+     * @Route("/getConvey")
+     */
+    public function refreshUserLocationAction(Request $request)
+    {
+        $data = $request->request->all();
+    }
+
+
+    public function refreshConveyLocation(Request $request)
+    {
+    }
+
+    /**
+     * @Route("/getConvey")
+     */
+    public function getBroadcastsAction(Request $request)
+    {
+        $data = $request->request->all();
+    }
+
+    /**
+     * @Route("/getConvey")
+     */
+    public function getEventsAction(Request $request)
+    {
+        $data = $request->request->all();
+    }
+
+    /**
+     * @Route("/getConvey")
+     */
+    public function addEventAction(Request $request)
+    {
+        $data = $request->request->all();
+    }
+
+    /**
+     * @Route("/getConvey")
+     */
+    public function addBroadcastAction(Request $request)
+    {
+        $data = $request->request->all();
+    }
+
+
 
 
 }

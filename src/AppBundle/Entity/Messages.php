@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="messages", indexes={@ORM\Index(name="messages_fk0", columns={"from_id"}), @ORM\Index(name="messages_fk1", columns={"to_id"})})
  * @ORM\Entity
  */
-class Messages
+class Messages implements \JsonSerializable
 {
     /**
      * @var string
@@ -54,6 +54,88 @@ class Messages
      * })
      */
     private $to;
+
+    /**
+     * @return string
+     */
+    public function getMessage()
+    {
+        return $this->message;
+    }
+
+    /**
+     * @param string $message
+     */
+    public function setMessage($message)
+    {
+        $this->message = $message;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getTime()
+    {
+        return $this->time;
+    }
+
+    /**
+     * @param \DateTime $time
+     */
+    public function setTime($time)
+    {
+        $this->time = $time;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+
+
+    /**
+     * @return Users
+     */
+    public function getFrom()
+    {
+        return $this->from;
+    }
+
+    /**
+     * @param Users $from
+     */
+    public function setFrom($from)
+    {
+        $this->from = $from;
+    }
+
+    /**
+     * @return Users
+     */
+    public function getTo()
+    {
+        return $this->to;
+    }
+
+    /**
+     * @param Users $to
+     */
+    public function setTo($to)
+    {
+        $this->to = $to;
+    }
+
+
+    public function jsonSerialize()
+    {
+        $vars = get_object_vars($this);
+
+        return $vars;
+    }
 
 
 }

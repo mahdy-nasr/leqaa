@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="broadcasts", indexes={@ORM\Index(name="broadcasts_fk0", columns={"user_id"}), @ORM\Index(name="broadcasts_fk1", columns={"convey_id"})})
  * @ORM\Entity
  */
-class Broadcasts
+class Broadcasts implements \JsonSerializable
 {
     /**
      * @var \DateTime
@@ -54,6 +54,89 @@ class Broadcasts
      * })
      */
     private $convey;
+
+    /**
+     * @return \DateTime
+     */
+    public function getTime()
+    {
+        return $this->time;
+    }
+
+    /**
+     * @param \DateTime $time
+     */
+    public function setTime($time)
+    {
+        $this->time = $time;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMessage()
+    {
+        return $this->message;
+    }
+
+    /**
+     * @param string $message
+     */
+    public function setMessage($message)
+    {
+        $this->message = $message;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+
+
+    /**
+     * @return Users
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param Users $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
+
+    /**
+     * @return Convey
+     */
+    public function getConvey()
+    {
+        return $this->convey;
+    }
+
+    /**
+     * @param Convey $convey
+     */
+    public function setConvey($convey)
+    {
+        $this->convey = $convey;
+    }
+
+
+
+    public function jsonSerialize()
+    {
+        $vars = get_object_vars($this);
+
+        return $vars;
+    }
 
 
 }

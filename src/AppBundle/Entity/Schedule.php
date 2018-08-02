@@ -10,21 +10,16 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="schedule", indexes={@ORM\Index(name="schedule_fk0", columns={"convey_id"})})
  * @ORM\Entity
  */
-class Schedule
+class Schedule implements \JsonSerializable
 {
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="start_time", type="datetime", nullable=false)
+     * @ORM\Column(name="time", type="datetime", nullable=false)
      */
-    private $startTime;
+    private $time;
 
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="end_time", type="datetime", nullable=false)
-     */
-    private $endTime;
+
 
     /**
      * @var string
@@ -40,12 +35,7 @@ class Schedule
      */
     private $description;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="location", type="string", length=255, nullable=false)
-     */
-    private $location;
+
 
     /**
      * @var integer
@@ -65,6 +55,88 @@ class Schedule
      * })
      */
     private $convey;
+
+    /**
+     * @return \DateTime
+     */
+    public function getTime()
+    {
+        return $this->time;
+    }
+
+    /**
+     * @param \DateTime $time
+     */
+    public function setTime($time)
+    {
+        $this->time = $time;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+
+
+    /**
+     * @return Convey
+     */
+    public function getConvey()
+    {
+        return $this->convey;
+    }
+
+    /**
+     * @param Convey $convey
+     */
+    public function setConvey($convey)
+    {
+        $this->convey = $convey;
+    }
+
+
+    public function jsonSerialize()
+    {
+        $vars = get_object_vars($this);
+
+        return $vars;
+    }
 
 
 }

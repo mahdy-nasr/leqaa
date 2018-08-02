@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="users")
  * @ORM\Entity
  */
-class Users
+class Users implements \JsonSerializable
 {
     /**
      * @var string
@@ -305,7 +305,17 @@ class Users
 
 
 
+    public function jsonSerialize()
+    {
+        $vars = get_object_vars($this);
 
+        return $vars;
+    }
+
+    public  function __toString()
+    {
+        return $this->getName();
+    }
 
 
 }
