@@ -25,10 +25,15 @@ class AllController extends Controller
     {
         return new JsonResponse($opj, $status);
     }
+
+    private function getOrm()
+    {
+        return $this->getDoctrine()->getManager();
+    }
     /**
      * @Route("/loginuser", name="userlogin")
      */
-    public function createUserAction(Request $request)
+    public function loginUserAction(Request $request)
     {
         $data = $this->getData($request);
         if (!$data || !isset($data['mobile'])) {
@@ -36,8 +41,13 @@ class AllController extends Controller
         }
 
 
-        $em=$this->getDoctrine()->getManager();
-        $genus=$em->getRepository('AppBundle:User')->findOneBy(['name'=>$type]);
-        return $this->response([]);
+        $em= $this->getOrm();
+        $user = $em->getRepository('AppBundle:Users')->findOneBy(['mobile'=>$data['mobile']]);
+        if ($user && $user->getPassword() == $data['password']) {
+            return $this->response($user);
+        }
+
+
+        return $this->response(['msg'=>'not allowed'], 400);
     }
 }

@@ -17,14 +17,14 @@ class Users
      *
      * @ORM\Column(name="Name", type="string", length=255, nullable=false)
      */
-    private $name;
+    public $name;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="age", type="integer", nullable=false)
      */
-    private $age;
+    public $age;
 
     /**
      * @var integer
@@ -32,63 +32,111 @@ class Users
      * @ORM\Column(name="role", type="integer", nullable=false)
      * 1-advisor, 2-hajj
      */
-    private $role;
+    public $role;
 
     /**
      * @var string
      *
      * @ORM\Column(name="mobile", type="string", length=255, nullable=false)
      */
-    private $mobile;
+    public $mobile;
 
     /**
      * @var string
      *
      * @ORM\Column(name="password", type="string", length=255, nullable=false)
      */
-    private  $password;
+    public  $password;
+
+    /**
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * @param string $password
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLocation()
+    {
+        return $this->location;
+    }
+
+    /**
+     * @param string $location
+     */
+    public function setLocation($location)
+    {
+        $this->location = $location;
+    }
+
+    /**
+     * @return int
+     */
+    public function getRole()
+    {
+        return $this->role;
+    }
+
+    /**
+     * @param int $role
+     */
+    public function setRole($role)
+    {
+        $this->role = $role;
+    }
 
     /**
      * @var string
      *
      * @ORM\Column(name="country", type="string", length=255, nullable=false)
      */
-    private $country;
+    public $country;
 
     /**
      * @var string
      *
      * @ORM\Column(name="passport_number", type="string", length=255, nullable=false)
      */
-    private $passportNumber;
+    public $passportNumber;
 
     /**
      * @var string
      *
      * @ORM\Column(name="location", type="string", length=255, nullable=false)
      */
-    private $location;
+    public $location;
 
     /**
      * @var integer
      *
      * @ORM\Column(name="qr_code", type="integer", nullable=false)
      */
-    private $qrCode;
+    public $qrCode;
 
     /**
      * @var boolean
      *
      * @ORM\Column(name="admin", type="boolean", nullable=false)
      */
-    private $admin;
+    public $admin;
 
     /**
      * @var string
      *
      * @ORM\Column(name="language", type="string", length=255, nullable=false)
      */
-    private $language;
+    public $language;
 
     /**
      * @var integer
@@ -97,7 +145,7 @@ class Users
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    public $id;
 
 
 
