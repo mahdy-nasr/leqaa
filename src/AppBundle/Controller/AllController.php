@@ -18,7 +18,7 @@ class AllController extends Controller
 {
     public function getData($request)
     {
-        return json_decode($request->getContent(), 1);
+        return $request->getContent();
     }
 
     private function response($opj, $status=200)
