@@ -101,7 +101,7 @@ class AllController extends Controller
     }
 
     /**
-     * @Route("/getConvey")
+     * @Route("/getAlerts")
      */
     public function getConveyMissingUsersForAdminAction(Request $request)
     {
