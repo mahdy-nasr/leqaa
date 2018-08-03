@@ -9,6 +9,7 @@
 namespace AppBundle\Controller;
 use AppBundle\Entity\Broadcasts;
 use AppBundle\Entity\Schedule;
+use AppBundle\Entity\Users;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -57,6 +58,27 @@ class AllController extends Controller
     }
 
     /**
+     * @Route("/getuser", name="usernd")
+     */
+    public function getUserAction(Request $request)
+    {
+        $data = $request->request->all();
+        if (!$data || !isset($data['id'])) {
+            return $this->response($data, 400);
+        }
+
+
+        $em= $this->getOrm();
+        $user = $em->getRepository('AppBundle:Users')->findOneBy(['id'=>$data['id']]);
+        if (!$user) {
+            return $this->response(['msg'=>'not exist'], 400);
+        }
+
+            return $this->response($user);
+
+    }
+
+    /**
      * @Route("/getqruser", name="getQruser")
      */
     public function getQrUserAction(Request $request)
@@ -69,7 +91,13 @@ class AllController extends Controller
 
         $em= $this->getOrm();
         $qrCode = ltrim($data['qrCode'],"0 ");
+        /** @var Users  $user */
         $user = $em->getRepository('AppBundle:Users')->findOneBy(['qrCode'=>$qrCode]);
+        if($user) {
+            $user->setMissing(true);
+            $em->persist($user);
+            $em->flush();
+        }
 
             return $this->response($user);
 
