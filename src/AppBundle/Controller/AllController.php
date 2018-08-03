@@ -221,7 +221,7 @@ class AllController extends Controller
     }
 
     /**
-     * @Route("/getBroadcast")
+     * @Route("/addBroadcast")
      */
     public function addBroadcastAction(Request $request)
     {
