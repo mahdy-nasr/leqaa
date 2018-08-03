@@ -36,24 +36,18 @@ class Broadcasts implements \JsonSerializable
     private $id;
 
     /**
-     * @var \AppBundle\Entity\Users
+     * @var integer
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Users")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
-     * })
+     * @ORM\Column(name="user_id", type="integer")
      */
-    private $user;
+    private $userId;
 
     /**
-     * @var \AppBundle\Entity\Convey
+     * @var string
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Convey")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="convey_id", referencedColumnName="id")
-     * })
+     * @ORM\Column(name="convey_id", type="string", length=255, nullable=false)
      */
-    private $convey;
+    private $conveyId;
 
     /**
      * @return \DateTime
@@ -95,39 +89,41 @@ class Broadcasts implements \JsonSerializable
         return $this->id;
     }
 
-
-
     /**
-     * @return Users
+     * @return int
      */
-    public function getUser()
+    public function getUserId()
     {
-        return $this->user;
+        return $this->userId;
     }
 
     /**
-     * @param Users $user
+     * @param int $userId
      */
-    public function setUser($user)
+    public function setUserId($userId)
     {
-        $this->user = $user;
+        $this->userId = $userId;
     }
 
     /**
-     * @return Convey
+     * @return string
      */
-    public function getConvey()
+    public function getConveyId()
     {
-        return $this->convey;
+        return $this->conveyId;
     }
 
     /**
-     * @param Convey $convey
+     * @param string $conveyId
      */
-    public function setConvey($convey)
+    public function setConveyId($conveyId)
     {
-        $this->convey = $convey;
+        $this->conveyId = $conveyId;
     }
+
+
+
+
 
 
 
