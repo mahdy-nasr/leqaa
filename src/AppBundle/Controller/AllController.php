@@ -120,7 +120,7 @@ class AllController extends Controller
     public function getNearestUserAction()
     {
         $em= $this->getOrm();
-        $user = $em->getRepository('AppBundle:Users')->findOneBy(['qrCode'=>'637025']);
+        $user = $em->getRepository('AppBundle:Users')->findOneBy(['qrCode'=>'877683']);
 
         return $this->response($user);
     }
@@ -195,7 +195,7 @@ class AllController extends Controller
     }
 
     /**
-     * @Route("/addEvents")
+     * @Route("/addEvent")
      */
     public function addEventAction(Request $request)
     {
@@ -203,7 +203,7 @@ class AllController extends Controller
         if (!$data) {
             return $this->response($data, 400);
         }
-        $time = $data['time'];
+        $time = \DateTime::createFromFormat('Y-m-d\TH:i:s',$data['time']);
         $name = $data['title'];
         $description = $data['desc'];
         $conveyId = $data['conveyId'];
