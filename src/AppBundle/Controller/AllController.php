@@ -229,7 +229,7 @@ class AllController extends Controller
         if (!$data) {
             return $this->response($data, 400);
         }
-        $time = $data['time'];
+        $time = \DateTime::createFromFormat('Y-m-d\TH:i:s',$data['time']);
         $message = $data['message'];
         $conveyId = $data['conveyId'];
         $em= $this->getOrm();
